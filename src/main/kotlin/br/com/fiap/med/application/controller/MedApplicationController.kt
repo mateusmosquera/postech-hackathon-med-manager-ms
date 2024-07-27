@@ -42,5 +42,7 @@ class MedApplicationController(private val medDomainUseCase: MedDomainUseCase) {
         ).toDTO()
     }
 
+    fun findById(id: Long): MedResponse = medDomainUseCase.findMedByid(id).toDTO()
+
 
 }

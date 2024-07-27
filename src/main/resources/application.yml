@@ -8,7 +8,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     defer-datasource-initialization: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         globally_quoted_identifiers: false
@@ -21,12 +21,9 @@ spring:
           order_updates: true
     show-sql: true
     generate-ddl: true
-  sql:
-    init:
-      mode: always
 
 server:
   servlet:
     context-path: /med-manager/api/v1
-  port: 8090
+  port: 8080
   host: http://localhost
