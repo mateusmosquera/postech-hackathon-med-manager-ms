@@ -1,13 +1,14 @@
 spring:
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/med}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/appointments}
     username: username
     password: password
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         globally_quoted_identifiers: false
@@ -20,9 +21,12 @@ spring:
           order_updates: true
     show-sql: true
     generate-ddl: true
+  sql:
+    init:
+      mode: always
 
 server:
   servlet:
     context-path: /med-manager/api/v1
-  port: 8080
+  port: 8090
   host: http://localhost
