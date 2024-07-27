@@ -17,7 +17,7 @@ FROM openjdk:17-alpine3.14
 WORKDIR /app
 
 # Copiando o JAR da fase de construção para a fase de execução
-COPY --from=builder /workspace/app/target/fiap-med-ms-*.jar application.jar
+COPY --from=builder /workspace/app/target/hackathon-med-manager-ms-*.jar application.jar
 
 EXPOSE 8080
 

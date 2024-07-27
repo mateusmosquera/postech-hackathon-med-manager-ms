@@ -77,8 +77,8 @@ resources: {}
 
 autoscaling:
   enabled: true
-  minReplicas: 2
-  maxReplicas: 100
+  minReplicas: 1
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 80
   targetMemoryUtilizationPercentage: 80
 
@@ -108,4 +108,4 @@ healthCheck:
 
 env:
   - name: DATABASE_URL
-    value: "fiap-med-db.cluster-cvwsi6meo8q2.us-east-1.docdb.amazonaws.com"
+    value: "med-db.cvwsi6meo8q2.us-east-1.rds.amazonaws.com"
