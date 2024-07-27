@@ -33,9 +33,13 @@ class MedHttpController(private val medService: MedApplicationController) {
         return ResponseEntity.created(uri).body(medCreated)
     }
 
-    @GetMapping("/{cpf}")
+    @GetMapping("/{cpf}/cpf")
     fun findByCpf(@PathVariable(required = true) cpf: String) =
         ResponseEntity(medService.findByCpf(cpf = cpf), HttpStatus.OK)
+
+    @GetMapping("/{id}")
+    fun findById(@PathVariable(required = true) id: Long) =
+        ResponseEntity(medService.findById(id = id), HttpStatus.OK)
 
     @GetMapping("/list")
     fun listAllDoctor(@RequestParam(required = false) specialty: String?,

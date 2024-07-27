@@ -66,11 +66,11 @@ class MedDomainUseCase(@Qualifier("medJPARepository") private val medRepositoryG
 
     fun crmExists(med: Med) = med.crm?.let { medRepositoryGateway.existsByCrm(it) }
 
-    fun findMedByid(id: Long): Med? { return medRepositoryGateway.findById(id) }
+    fun findMedByid(id: Long): Med { return medRepositoryGateway.findById(id) ?:  throw BusinessException(MedExceptionEnum.MED_NOT_FOUND)}
 
     fun addEvaluation(medId: Long, clientRate: Int): Evaluation {
 
-        val optMed = findMedByid(medId) ?:  throw BusinessException(MedExceptionEnum.MED_NOT_FOUND)
+        val optMed = findMedByid(medId)
 
        return evaluationRepositoryGateway.save(Evaluation(id = null, clientRate = clientRate, med = optMed))
     }
