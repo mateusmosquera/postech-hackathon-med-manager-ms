@@ -108,4 +108,4 @@ healthCheck:
 
 env:
   - name: DATABASE_URL
-    value: "med-db.cvwsi6meo8q2.us-east-1.rds.amazonaws.com"
+    value: "jdbc:postgresql://med-db.cvwsi6meo8q2.us-east-1.rds.amazonaws.com:5432/med"
